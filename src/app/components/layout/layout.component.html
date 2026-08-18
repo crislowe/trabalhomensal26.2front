@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container">
+    
+    <a class="navbar-brand fw-bold" routerLink="/painel/lista">
+      <i class="fas fa-mug-hot me-2"></i>Cafeteria
+    </a>
+
+    <div class="d-flex align-items-center text-white">
+      <span class="me-3">
+        Olá, <strong>{{ nomeUsuario }}</strong> 
+        <span class="badge ms-1" [ngClass]="authService.isAdmin() ? 'bg-danger' : 'bg-info'">
+          {{ authService.isAdmin() ? 'ADMIN' : 'USUÁRIO' }}
+        </span>
+      </span>
+
+      <button (click)="sair()" class="btn btn-outline-light btn-sm">
+        <i class="fas fa-sign-out-alt me-1"></i>Sair
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<div class="container mb-5">
+  <!-- Outlet para as rotas filhas (children) -->
+  <router-outlet></router-outlet>
+</div>
