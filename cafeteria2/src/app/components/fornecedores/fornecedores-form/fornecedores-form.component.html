@@ -1,0 +1,27 @@
+<div class="container">
+  <form #formulario="ngForm" (ngSubmit)="save()">
+
+    <mdb-form-control>
+      <input required [(ngModel)]="fornecedor.nome" mdbInput type="text" name="nome" class="form-control" />
+      <label mdbLabel class="form-label" for="nome">Nome do fornecedor:</label>
+    </mdb-form-control>
+    <br>
+
+    <mdb-form-control>
+      <input required [(ngModel)]="fornecedor.cnpj" mdbInput type="text" name="cnpj" class="form-control" />
+      <label mdbLabel class="form-label" for="cnpj">CNPJ:</label>
+    </mdb-form-control>
+    <br>
+
+    @if (fornecedor.id > 0) {
+      <button type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-rounded">
+        <i class="fas fa-save fa-sm"></i> Atualizar
+      </button>
+    } @else {
+      <button type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-rounded">
+        <i class="fas fa-save fa-sm"></i> Salvar
+      </button>
+    }
+
+  </form>
+</div>

@@ -1,0 +1,32 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> Cafeteria2</a>
+
+    <button class="navbar-toggler" type="button" (click)="basicNavbar.toggle()" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" mdbCollapse #basicNavbar="mdbCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/dashboard">Início</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/produtos">Produtos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/fornecedores">Fornecedores</a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn btn-primary me-3" disabled>
+          Bem-vindo, {{loginService.getUsuario()}}
+        </button>
+        <a class="btn btn-danger px-3" (click)="sair()" role="button">Sair</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Navbar -->

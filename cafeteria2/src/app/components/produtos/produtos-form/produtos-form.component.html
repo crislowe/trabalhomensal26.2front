@@ -1,0 +1,57 @@
+<div class="container">
+  <form #formulario="ngForm" (ngSubmit)="save()">
+
+    <mdb-form-control>
+      <input required [(ngModel)]="produto.nome" mdbInput type="text" name="nome" class="form-control" />
+      <label mdbLabel class="form-label" for="nome">Nome do produto:</label>
+    </mdb-form-control>
+    <br>
+
+    <div class="row">
+      <div class="col-6">
+        <mdb-form-control>
+          <input required [(ngModel)]="produto.preco" mdbInput type="number" step="0.01" name="preco" class="form-control" />
+          <label mdbLabel class="form-label" for="preco">Preço:</label>
+        </mdb-form-control>
+      </div>
+      <div class="col-6">
+        <mdb-form-control>
+          <input required [(ngModel)]="produto.quantidade" mdbInput type="number" name="quantidade" class="form-control" />
+          <label mdbLabel class="form-label" for="quantidade">Quantidade:</label>
+        </mdb-form-control>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-6">
+        <label class="form-label">Categoria:</label>
+        <select class="form-control" name="categoria" [(ngModel)]="produto.categoria" required>
+          @for (categoria of categorias; track $index) {
+            <option [value]="categoria">{{categoria}}</option>
+          }
+        </select>
+      </div>
+      <div class="col-6">
+        <label class="form-label">Fornecedor:</label>
+        <select class="form-control" name="fornecedorId" [(ngModel)]="produto.fornecedorId" required>
+          @for (fornecedor of listaFornecedores; track $index) {
+            <option [value]="fornecedor.id">{{fornecedor.nome}}</option>
+          }
+        </select>
+      </div>
+    </div>
+    <br>
+
+    @if (produto.id > 0) {
+      <button type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-rounded">
+        <i class="fas fa-save fa-sm"></i> Atualizar
+      </button>
+    } @else {
+      <button type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-rounded">
+        <i class="fas fa-save fa-sm"></i> Salvar
+      </button>
+    }
+
+  </form>
+</div>

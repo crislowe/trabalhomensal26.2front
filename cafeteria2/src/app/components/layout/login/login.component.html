@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <br><br>
+
+      <div class="card">
+        <div class="card-body centralizar">
+          <h3>☕ Cafeteria2</h3>
+          <p class="text-muted">usuário: admin / senha: 1234</p>
+          <br>
+
+          <mdb-form-control>
+            <input [(ngModel)]="login.usuario" mdbInput type="text" id="usuario" name="usuario" class="form-control" />
+            <label mdbLabel class="form-label" for="usuario">Usuário:</label>
+          </mdb-form-control>
+          <br>
+
+          <mdb-form-control>
+            <input (keyup.enter)="logar()" [(ngModel)]="login.senha" mdbInput type="password" id="senha" name="senha" class="form-control" />
+            <label mdbLabel class="form-label" for="senha">Senha:</label>
+          </mdb-form-control>
+          <br>
+
+          <button (click)="logar()" type="button" class="btn btn-primary" mdbRipple>Entrar</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
